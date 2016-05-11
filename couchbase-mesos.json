@@ -1,0 +1,24 @@
+{
+  "id": "couchbase-mesos",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "arungupta/couchbase",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "hostPort": 0, "containerPort": 8091, "servicePort": 8091 },
+        { "hostPort": 0, "containerPort": 8092, "servicePort": 8092 },
+        { "hostPort": 0, "containerPort": 8093, "servicePort": 8093 },
+        { "hostPort": 0, "containerPort": 11210, "servicePort": 11210 }
+      ],
+      "forcePullImage":true
+    }
+  },
+  "instances": 1,
+  "cpus": 2.0,
+  "mem": 2048,
+  "labels":{
+    "HAPROXY_GROUP":"external"
+  }
+}
+
